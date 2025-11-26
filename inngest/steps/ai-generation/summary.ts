@@ -1,146 +1,100 @@
 /**
- * AI Summary Generation Step
+ * AI Summary Generation Step (Gemini Version)
  *
- * Generates multi-format podcast summaries using OpenAI GPT.
- *
- * Summary Formats:
- * - Full: 200-300 word comprehensive overview for show notes
- * - Bullets: 5-7 scannable key points for quick reference
- * - Insights: 3-5 actionable takeaways for the audience
- * - TL;DR: One-sentence hook for social media
- *
- * Integration:
- * - Uses OpenAI Structured Outputs (zodResponseFormat) for type safety
- * - Wrapped in step.ai.wrap() for Inngest observability and automatic retries
- * - Leverages AssemblyAI chapters for better context understanding
- *
- * Design Decision: Why multiple summary formats?
- * - Different use cases: blog, email, social, show notes
- * - Saves manual editing time for content creators
- * - Each format optimized for its specific purpose
+ * Generates multi-format podcast summaries using Google Gemini 1.5 Flash.
  */
+
 import type { step as InngestStep } from "inngest";
-import type OpenAI from "openai";
-import { zodResponseFormat } from "openai/helpers/zod";
-import { openai } from "../../lib/openai-client";
+import { gemini } from "../../lib/gemini-client";
 import { type Summary, summarySchema } from "../../schemas/ai-outputs";
 import type { TranscriptWithExtras } from "../../types/assemblyai";
 
-// System prompt defines GPT's role and expertise
 const SUMMARY_SYSTEM_PROMPT =
   "You are an expert podcast content analyst and marketing strategist. Your summaries are engaging, insightful, and highlight the most valuable takeaways for listeners.";
 
-/**
- * Builds the user prompt with transcript context and detailed instructions
- *
- * Prompt Engineering Techniques:
- * - Provides first 3000 chars of transcript (balance context vs. token cost)
- * - Includes AssemblyAI chapters for topic structure
- * - Specific formatting requirements for each summary type
- * - Examples and constraints to guide GPT output
- */
 function buildSummaryPrompt(transcript: TranscriptWithExtras): string {
-  return `Analyze this podcast transcript in detail and create a comprehensive summary package.
+  return `SYSTEM INSTRUCTION:
+${SUMMARY_SYSTEM_PROMPT}
+
+USER REQUEST:
+Analyze this podcast transcript in detail and create a structured JSON summary.
 
 TRANSCRIPT (first 3000 chars):
 ${transcript.text.substring(0, 3000)}...
 
 ${
-  transcript.chapters.length > 0
-    ? `\nAUTO-DETECTED CHAPTERS:\n${transcript.chapters
-        .map((ch, idx) => `${idx + 1}. ${ch.headline} - ${ch.summary}`)
-        .join("\n")}`
+  transcript.chapters.length
+    ? `AUTO-DETECTED CHAPTERS:
+${transcript.chapters
+  .map((c, i) => `${i + 1}. ${c.headline} - ${c.summary}`)
+  .join("\n")}`
     : ""
 }
 
-Create a summary with:
+REQUIRED OUTPUT FORMAT (STRICT JSON):
 
-1. FULL OVERVIEW (200-300 words):
-   - What is this podcast about?
-   - Who is speaking and what's their perspective?
-   - What are the main themes and arguments?
-   - Why should someone listen to this?
-
-2. KEY BULLET POINTS (5-7 items):
-   - Main topics discussed in order
-   - Important facts or statistics mentioned
-   - Key arguments or positions taken
-   - Notable quotes or moments
-
-3. ACTIONABLE INSIGHTS (3-5 items):
-   - What can listeners learn or apply?
-   - Key takeaways that provide value
-   - Perspectives that challenge conventional thinking
-   - Practical advice or recommendations
-
-4. TL;DR (one compelling sentence):
-   - Capture the essence and hook interest
-   - Make someone want to listen
-
-Be specific, engaging, and valuable. Focus on what makes this podcast unique and worth listening to.`;
+{
+  "full": "200-300 word overview...",
+  "bullets": ["point1", "point2", ...],
+  "insights": ["insight1", "insight2", ...],
+  "tldr": "one-sentence summary"
 }
 
-/**
- * Generates summary using OpenAI GPT with structured outputs
- *
- * Error Handling:
- * - Returns fallback summary on API failure (graceful degradation)
- * - Logs errors for debugging
- * - Doesn't throw (allows other parallel jobs to continue)
- *
- * Inngest Integration:
- * - step.ai.wrap() tracks token usage and performance
- * - Provides automatic retry on transient failures
- * - Shows AI call details in Inngest dashboard
- */
+DO NOT include any explanation. Return ONLY valid JSON.`;
+}
+
 export async function generateSummary(
   step: typeof InngestStep,
   transcript: TranscriptWithExtras
 ): Promise<Summary> {
-  console.log("Generating podcast summary with GPT-4");
+  console.log("Generating podcast summary using Gemini…");
 
   try {
-    // Bind OpenAI method to preserve `this` context (required for step.ai.wrap)
-    const createCompletion = openai.chat.completions.create.bind(
-      openai.chat.completions
+    const prompt = buildSummaryPrompt(transcript);
+
+    // Gemini API call wrapper for Inngest
+    const createCompletion = async (args: { prompt: string }) => {
+      const model = gemini.getGenerativeModel({
+        model: "gemini-2.5-flash",
+      });
+
+      // Gemini equivalent of chat completion
+      const result = await model.generateContent(args.prompt);
+      console.log("Gemini raw response:", result);
+      return { text: result.response.text() };
+    };
+
+    // Inngest wrap
+    const response = await step.ai.wrap(
+      "generate-summary-with-gemini",
+      createCompletion,
+      { prompt }
     );
 
-    // Call OpenAI with Structured Outputs for type-safe response
-    const response = (await step.ai.wrap(
-      "generate-summary-with-gpt",
-      createCompletion,
-      {
-        model: "gpt-5-mini", // Fast and cost-effective model
-        messages: [
-          { role: "system", content: SUMMARY_SYSTEM_PROMPT },
-          { role: "user", content: buildSummaryPrompt(transcript) },
-        ],
-        // zodResponseFormat ensures response matches summarySchema
-        response_format: zodResponseFormat(summarySchema, "summary"),
-      }
-    )) as OpenAI.Chat.Completions.ChatCompletion;
+    const rawText = response.text;
+const cleaned = rawText
+  .replace(/```json/i, "")
+  .replace(/```/g, "")
+  .trim();
 
-    const content = response.choices[0]?.message?.content;
-    // Parse and validate response against schema
-    const summary = content
-      ? summarySchema.parse(JSON.parse(content))
-      : {
-          // Fallback: use raw transcript if parsing fails
-          full: transcript.text.substring(0, 500),
-          bullets: ["Full transcript available"],
-          insights: ["See transcript"],
-          tldr: transcript.text.substring(0, 200),
-        };
+    let parsed;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch (err) {
+      console.error("JSON parse error:", err);
+      throw err;
+    }
 
+    // Validate with Zod
+    const summary = summarySchema.parse(parsed);
     return summary;
   } catch (error) {
-    console.error("GPT summary generation error:", error);
+    console.error("Gemini summary generation error:", error);
 
-    // Graceful degradation: return error message but allow workflow to continue
     return {
-      full: "⚠️ Error generating summary with GPT-4. Please check logs or try again.",
-      bullets: ["Summary generation failed - see full transcript"],
-      insights: ["Error occurred during AI generation"],
+      full: "⚠️ Error generating summary with Gemini. Please check logs.",
+      bullets: ["Summary generation failed - see transcript"],
+      insights: ["No insights available due to error"],
       tldr: "Summary generation failed",
     };
   }

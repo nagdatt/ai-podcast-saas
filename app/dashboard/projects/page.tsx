@@ -11,7 +11,7 @@ export default async function ProjectsPage() {
   if (!userId) {
     redirect("/");
   }
-
+  console.log("Rendering Projects Page for user:", api.projects.listUserProjects);
   // Preload projects data on the server
   const preloadedProjects = await preloadQuery(api.projects.listUserProjects, {
     userId,

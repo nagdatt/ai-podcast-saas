@@ -431,10 +431,14 @@ export const listUserProjects = query({
       .order("desc");
 
     // Built-in pagination with cursor support
-    return await query.paginate({
+        console.log("listUserProjects value:");
+
+    const value= await query.paginate({
       numItems,
       cursor: args.paginationOpts?.cursor ?? null,
     });
+    console.log("listUserProjects value:", value);
+    return value
   },
 });
 
