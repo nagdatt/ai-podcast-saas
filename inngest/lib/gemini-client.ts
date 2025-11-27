@@ -16,6 +16,5 @@
  */
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
-export const gemini = new GoogleGenerativeAI("AIzaSyA2N0_DcitOrbr6PI79WEoQ95wpsMtJYU4");
+export const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 //   const model = ai.getGenerativeModel({ model: "gemini-2.5-flash" });
