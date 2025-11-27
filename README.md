@@ -76,44 +76,7 @@ Here's the simple explanation:
 
 No manual writing. No copying and pasting between platforms. No guessing what hashtags work.
 
----
 
-## 🚀 Before We Dive In - Join the PAPAFAM!
-
-**Want to build apps like this from scratch?**
-
-If you're looking at this project thinking "I want to learn how to build this," I've got you covered.
-
-### 💡 What You'll Master
-
-- **Next.js 15** - Server actions, app router, API routes, and streaming
-- **Real-time Databases** - Convex for instant UI updates without polling
-- **AI Integrations** - OpenAI, AssemblyAI, and prompt engineering
-- **Background Jobs** - Inngest for durable, observable workflows
-- **Modern Auth & Billing** - Clerk with subscription management
-- **Production Deployment** - Vercel, environment variables, and monitoring
-
-### 🎓 PAPAFAM Community Benefits
-
-- **Private Discord** - Direct access to me and other builders
-- **Code Reviews** - Get feedback on your projects
-- **Weekly Q&A Sessions** - Ask anything about development
-- **Job Board** - Exclusive opportunities shared with the community
-
-### 🎯 Real Results
-
-Students have gone from beginner to shipping production apps in weeks. Learn the same modern stack used by top startups.
-
-### 📦 What's Included
-
-- **50+ hours of video tutorials** - Step-by-step project builds
-- **Starter templates** - Clone and customize for your projects
-- **Lifetime updates** - New courses and content added regularly
-- **Certificate of completion** - Show employers your skills
-
-### 👉 [Join the PAPAFAM Course](https://www.papareact.com/course)
-
----
 
 ## ✨ Features
 
