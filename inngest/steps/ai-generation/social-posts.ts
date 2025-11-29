@@ -89,9 +89,9 @@ export async function generateSocialPosts(
     const parsed = JSON.parse(jsonText);
 
     // Validate with Zod schema (no twitter limit anymore)
-    const socialPosts = socialPostsSchema.parse(parsed);
+    // const socialPosts = socialPostsSchema.parse(parsed);
 
-    return socialPosts;
+    return parsed;
   } catch (error) {
     console.error("Gemini social post generation error:", error);
 

@@ -133,7 +133,7 @@ export const podcastProcessor = inngest.createFunction(
 
       // ULTRA-only features
       if (plan === "ultra") {
-        jobs.push(generateKeyMoments(transcript));
+        jobs.push(generateKeyMoments(step,transcript));
         jobNames.push("keyMoments");
 
         jobs.push(generateYouTubeTimestamps(step, transcript));

@@ -85,7 +85,7 @@ export const retryJobFunction = inngest.createFunction(
     try {
       switch (job) {
         case "keyMoments": {
-          const result = await generateKeyMoments(transcript);
+          const result = await generateKeyMoments(step,transcript);
           await step.run("save-key-moments", () =>
             convex.mutation(api.projects.saveGeneratedContent, {
               projectId,
