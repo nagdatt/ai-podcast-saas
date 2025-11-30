@@ -20,4 +20,6 @@ import { Inngest } from "inngest";
 // The ID must match across all environments (dev, staging, prod)
 export const inngest = new Inngest({
   id: "ai-podcast-saas",
+  eventKey: process.env.INNGEST_EVENT_KEY || "",
+  
 });
