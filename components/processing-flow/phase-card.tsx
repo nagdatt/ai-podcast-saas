@@ -33,8 +33,8 @@ export function PhaseCard({
     <div
       className={cn(
         "glass-card rounded-2xl transition-all p-8",
-        isActive && "ring-2 ring-emerald-400 shadow-2xl hover-glow",
-        isCompleted && "ring-2 ring-emerald-500 shadow-emerald-200 shadow-lg",
+        isActive && "ring-2 ring-purple-400 shadow-2xl hover-glow",
+        isCompleted && "ring-2 ring-purple-500 shadow-purple-200 shadow-lg",
         !isCompleted && !isActive && "opacity-60",
       )}
     >
@@ -44,15 +44,15 @@ export function PhaseCard({
             <div
               className={cn(
                 "rounded-2xl p-4 transition-all",
-                isActive && "gradient-emerald animate-pulse-emerald shadow-lg",
-                isCompleted && "gradient-emerald shadow-lg",
-                !isActive && !isCompleted && "bg-emerald-100",
+                isActive && "gradient-purple animate-pulse-purple shadow-lg",
+                isCompleted && "gradient-purple shadow-lg",
+                !isActive && !isCompleted && "bg-purple-100",
               )}
             >
               <Icon
                 className={cn(
                   "h-8 w-8",
-                  isActive || isCompleted ? "text-white" : "text-emerald-600",
+                  isActive || isCompleted ? "text-white" : "text-purple-600",
                 )}
               />
             </div>
@@ -64,19 +64,19 @@ export function PhaseCard({
 
           <div>
             {isRunning && (
-              <Loader2 className="h-10 w-10 animate-spin text-emerald-600" />
+              <Loader2 className="h-10 w-10 animate-spin text-purple-600" />
             )}
             {isCompleted && (
-              <CheckCircle2 className="h-10 w-10 text-emerald-600" />
+              <CheckCircle2 className="h-10 w-10 text-purple-600" />
             )}
           </div>
         </div>
 
         {isRunning && progress !== undefined && (
           <div className="space-y-3">
-            <div className="relative h-3 bg-emerald-100 rounded-full overflow-hidden">
+            <div className="relative h-3 bg-purple-100 rounded-full overflow-hidden">
               <div
-                className="absolute inset-y-0 left-0 progress-emerald rounded-full transition-all duration-300"
+                className="absolute inset-y-0 left-0 progress-purple rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -87,7 +87,7 @@ export function PhaseCard({
                   <span>Estimated: {timeEstimate}</span>
                 </div>
               )}
-              <span className="text-emerald-600 font-bold">
+              <span className="text-purple-600 font-bold">
                 {Math.round(progress)}%
               </span>
             </div>

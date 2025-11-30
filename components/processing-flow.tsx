@@ -194,9 +194,9 @@ export function ProcessingFlow({
               );
             })}
 
-            <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 text-center mt-6 border-2 border-emerald-200 shadow-lg">
+            <div className="bg-gradient-to-r from-purple-50 to-purple-50 rounded-2xl p-6 text-center mt-6 border-2 border-purple-200 shadow-lg">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <span className="font-bold text-emerald-600 text-base">
+                <span className="font-bold text-purple-600 text-base">
                   Powered by Inngest
                 </span>{" "}
                 — AI is generating {unlockedOutputs.length} output
@@ -211,7 +211,7 @@ export function ProcessingFlow({
             {unlockedOutputs.map((output) => (
               <Badge
                 key={output.name}
-                className="text-sm px-4 py-2 gradient-emerald text-white shadow-md"
+                className="text-sm px-4 py-2 gradient-purple text-white shadow-md"
               >
                 {output.name}
               </Badge>

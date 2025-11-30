@@ -50,7 +50,7 @@ export function UploadProgress({
         {/* File metadata and status icon */}
         <div className="flex items-start gap-5">
           {/* File icon */}
-          <div className="rounded-2xl gradient-emerald p-4 shadow-lg">
+          <div className="rounded-2xl gradient-purple p-4 shadow-lg">
             <FileAudio className="h-8 w-8 text-white" />
           </div>
 
@@ -77,13 +77,13 @@ export function UploadProgress({
           {/* Status icon (right side) */}
           <div>
             {status === "uploading" && (
-              <Loader2 className="h-7 w-7 animate-spin text-emerald-600" />
+              <Loader2 className="h-7 w-7 animate-spin text-purple-600" />
             )}
             {status === "processing" && (
-              <Loader2 className="h-7 w-7 animate-spin text-emerald-600" />
+              <Loader2 className="h-7 w-7 animate-spin text-purple-600" />
             )}
             {status === "completed" && (
-              <CheckCircle2 className="h-7 w-7 text-emerald-600" />
+              <CheckCircle2 className="h-7 w-7 text-purple-600" />
             )}
             {status === "error" && (
               <XCircle className="h-7 w-7 text-red-500" />
@@ -96,7 +96,7 @@ export function UploadProgress({
           <div className="space-y-3">
             <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden">
               <div 
-                className="absolute inset-y-0 left-0 progress-emerald rounded-full transition-all duration-300 ease-out"
+                className="absolute inset-y-0 left-0 progress-purple rounded-full transition-all duration-300 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -104,15 +104,15 @@ export function UploadProgress({
               <span className="text-gray-700">
                 {status === "uploading" ? "Uploading..." : "Processing..."}
               </span>
-              <span className="text-emerald-600">{Math.round(progress)}%</span>
+              <span className="text-purple-600">{Math.round(progress)}%</span>
             </div>
           </div>
         )}
 
         {/* Status message for completed state */}
         {status === "completed" && (
-          <div className="p-4 rounded-xl bg-emerald-50 border-2 border-emerald-200">
-            <p className="text-sm font-semibold text-emerald-700">
+          <div className="p-4 rounded-xl bg-purple-50 border-2 border-purple-200">
+            <p className="text-sm font-semibold text-purple-700">
               Upload completed! Redirecting to project dashboard...
             </p>
           </div>

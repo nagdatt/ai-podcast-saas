@@ -7,7 +7,7 @@ export default function UploadPage() {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-extrabold mb-4">
-            Upload Your <span className="gradient-emerald-text">Podcast</span>
+            Upload Your <span className="gradient-purple-text">Podcast</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Upload your audio file to generate AI-powered insights, summaries, and
@@ -21,10 +21,10 @@ export default function UploadPage() {
 
           {/* Info Card */}
           <div className="glass-card rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-6 gradient-emerald-text">What happens next?</h3>
+            <h3 className="text-2xl font-bold mb-6 gradient-purple-text">What happens next?</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
-                <div className="p-2 rounded-xl gradient-emerald shrink-0 mt-1">
+                <div className="p-2 rounded-xl gradient-purple shrink-0 mt-1">
                   <span className="text-white font-bold text-lg">1</span>
                 </div>
                 <div>
@@ -33,7 +33,7 @@ export default function UploadPage() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="p-2 rounded-xl gradient-emerald shrink-0 mt-1">
+                <div className="p-2 rounded-xl gradient-purple shrink-0 mt-1">
                   <span className="text-white font-bold text-lg">2</span>
                 </div>
                 <div>
@@ -42,7 +42,7 @@ export default function UploadPage() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="p-2 rounded-xl gradient-emerald shrink-0 mt-1">
+                <div className="p-2 rounded-xl gradient-purple shrink-0 mt-1">
                   <span className="text-white font-bold text-lg">3</span>
                 </div>
                 <div>
@@ -51,7 +51,7 @@ export default function UploadPage() {
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <div className="p-2 rounded-xl gradient-emerald shrink-0 mt-1">
+                <div className="p-2 rounded-xl gradient-purple shrink-0 mt-1">
                   <span className="text-white font-bold text-lg">4</span>
                 </div>
                 <div>

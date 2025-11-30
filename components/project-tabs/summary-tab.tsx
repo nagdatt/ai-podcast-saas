@@ -16,14 +16,14 @@ export function SummaryTab({ summary }: SummaryTabProps) {
   return (
     <div className="space-y-6">
       <div className="glass-card rounded-2xl p-8">
-        <h3 className="text-2xl font-bold mb-4 gradient-emerald-text">TL;DR</h3>
+        <h3 className="text-2xl font-bold mb-4 gradient-purple-text">TL;DR</h3>
         <p className="text-lg text-gray-700 leading-relaxed wrap-break-word">
           {summary.tldr}
         </p>
       </div>
 
       <div className="glass-card rounded-2xl p-8">
-        <h3 className="text-2xl font-bold mb-4 gradient-emerald-text">
+        <h3 className="text-2xl font-bold mb-4 gradient-purple-text">
           Full Summary
         </h3>
         <p className="text-gray-700 leading-relaxed wrap-break-word">
@@ -39,7 +39,7 @@ export function SummaryTab({ summary }: SummaryTabProps) {
             {summary.bullets.map((bullet, idx) => (
               <li
                 key={`${idx}-${bullet}`}
-                className="p-4 rounded-xl bg-linear-to-r from-emerald-50 to-teal-50 border border-emerald-100"
+                className="p-4 rounded-xl bg-linear-to-r from-purple-50 to-purple-50 border border-purple-100"
               >
                 <span className="text-gray-700 leading-relaxed wrap-break-word">
                   {bullet}

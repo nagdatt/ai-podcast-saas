@@ -37,7 +37,7 @@ export function YouTubeTimestampsTab({
     <div className="glass-card rounded-2xl p-6 md:p-8">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-4">
         <div>
-          <h3 className="text-xl md:text-2xl font-bold gradient-emerald-text mb-2">
+          <h3 className="text-xl md:text-2xl font-bold gradient-purple-text mb-2">
             YouTube Timestamps
           </h3>
           <p className="text-sm text-gray-600">
@@ -48,7 +48,7 @@ export function YouTubeTimestampsTab({
         </div>
         <Button
           onClick={handleCopyAll}
-          className="gradient-emerald text-white hover-glow shadow-lg gap-2 shrink-0"
+          className="gradient-purple text-white hover-glow shadow-lg gap-2 shrink-0"
         >
           {isCopied("youtube-timestamps") ? (
             <>
@@ -65,7 +65,7 @@ export function YouTubeTimestampsTab({
       </div>
 
       <div className="space-y-6">
-        <div className="glass-card rounded-xl p-4 md:p-5 bg-linear-to-br from-emerald-50 to-teal-50 border border-emerald-100">
+        <div className="glass-card rounded-xl p-4 md:p-5 bg-linear-to-br from-purple-50 to-purple-50 border border-purple-100">
           <pre className="whitespace-pre-wrap font-mono text-xs md:text-sm wrap-break-word text-gray-800">
             {formattedTimestamps}
           </pre>
@@ -79,9 +79,9 @@ export function YouTubeTimestampsTab({
             {timestamps.map((timestamp) => (
               <div
                 key={`${timestamp.timestamp}-${timestamp.description.substring(0, 20)}`}
-                className="flex items-start gap-3 md:gap-4 p-4 md:p-5 glass-card rounded-xl border-l-4 border-l-emerald-400"
+                className="flex items-start gap-3 md:gap-4 p-4 md:p-5 glass-card rounded-xl border-l-4 border-l-purple-400"
               >
-                <code className="text-sm md:text-base font-mono font-bold gradient-emerald text-white px-3 py-1.5 rounded-lg shadow-md shrink-0">
+                <code className="text-sm md:text-base font-mono font-bold gradient-purple text-white px-3 py-1.5 rounded-lg shadow-md shrink-0">
                   {timestamp.timestamp}
                 </code>
                 <p className="text-sm md:text-base text-gray-700 flex-1 min-w-0 wrap-break-word leading-relaxed">

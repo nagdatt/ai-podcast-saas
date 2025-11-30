@@ -95,7 +95,7 @@ export default async function UpgradePage({ searchParams }: UpgradePageProps) {
         <div className="container mx-auto px-4 py-6">
           <Link
             href="/dashboard/projects"
-            className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors"
+            className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Dashboard
@@ -111,7 +111,7 @@ export default async function UpgradePage({ searchParams }: UpgradePageProps) {
             <Icon className="h-10 w-10 text-gray-700" />
           </div>
           <h1 className="text-5xl font-extrabold mb-6">
-            <span className="gradient-emerald-text">{message.title}</span>
+            <span className="gradient-purple-text">{message.title}</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
             {message.description}
@@ -123,7 +123,7 @@ export default async function UpgradePage({ searchParams }: UpgradePageProps) {
             <Badge
               className={
                 currentPlan === "ultra"
-                  ? "gradient-emerald text-white px-4 py-1.5"
+                  ? "gradient-purple text-white px-4 py-1.5"
                   : "bg-gray-200 text-gray-700 px-4 py-1.5"
               }
             >

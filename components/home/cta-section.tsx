@@ -11,12 +11,12 @@ export async function CtaSection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       {/* Gradient background */}
-      <div className="absolute inset-0 gradient-emerald"></div>
+      <div className="absolute inset-0 gradient-purple"></div>
 
       {/* Decorative elements */}
       <div className="absolute top-10 right-10 w-72 h-72 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-float"></div>
       <div
-        className="absolute bottom-10 left-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-float"
+        className="absolute bottom-10 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-overlay filter blur-3xl opacity-30 animate-float"
         style={{ animationDelay: "1.5s" }}
       ></div>
 
@@ -33,7 +33,7 @@ export async function CtaSection() {
               <Link href="/dashboard/upload">
                 <Button
                   size="lg"
-                  className="bg-white text-emerald-600 hover:bg-white/90 hover-glow text-lg px-10 py-7 rounded-xl shadow-2xl font-bold"
+                  className="bg-white text-purple-600 hover:bg-white/90 hover-glow text-lg px-10 py-7 rounded-xl shadow-2xl font-bold"
                 >
                   <Upload className="mr-2 h-6 w-6" />
                   Upload Your First Podcast
@@ -43,7 +43,7 @@ export async function CtaSection() {
               <SignInButton mode="modal">
                 <Button
                   size="lg"
-                  className="bg-white text-emerald-600 hover:bg-white/90 hover-glow text-lg px-10 py-7 rounded-xl shadow-2xl font-bold"
+                  className="bg-white text-purple-600 hover:bg-white/90 hover-glow text-lg px-10 py-7 rounded-xl shadow-2xl font-bold"
                 >
                   Get Started Now
                   <Sparkles className="ml-2 h-6 w-6" />

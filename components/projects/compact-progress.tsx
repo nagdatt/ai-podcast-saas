@@ -64,16 +64,16 @@ const js = jobStatus as any;
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <Badge className="text-xs font-semibold bg-emerald-100 text-emerald-700 border-emerald-200">
+        <Badge className="text-xs font-semibold bg-purple-100 text-purple-700 border-purple-200">
           {statusText}
         </Badge>
-        <span className="text-xs font-bold text-emerald-600">
+        <span className="text-xs font-bold text-purple-600">
           {Math.round(progress)}%
         </span>
       </div>
-      <div className="relative h-2 bg-emerald-100 rounded-full overflow-hidden">
+      <div className="relative h-2 bg-purple-100 rounded-full overflow-hidden">
         <div 
-          className="absolute inset-y-0 left-0 progress-emerald rounded-full transition-all duration-300"
+          className="absolute inset-y-0 left-0 progress-purple rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>

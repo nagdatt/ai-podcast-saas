@@ -9,8 +9,8 @@ export function EmptyState() {
     <div className="glass-card rounded-3xl p-12 md:p-16 text-center hover-lift">
       <div className="max-w-md mx-auto">
         <div className="relative mb-8">
-          <div className="absolute inset-0 gradient-emerald opacity-20 blur-3xl rounded-full"></div>
-          <div className="relative rounded-3xl gradient-emerald p-8 w-fit mx-auto shadow-2xl">
+          <div className="absolute inset-0 gradient-purple opacity-20 blur-3xl rounded-full"></div>
+          <div className="relative rounded-3xl gradient-purple p-8 w-fit mx-auto shadow-2xl">
             <FileAudio className="h-20 w-20 text-white" />
           </div>
         </div>
@@ -19,7 +19,7 @@ export function EmptyState() {
           Upload your first podcast to unlock AI-powered insights, summaries, and social content
         </p>
         <Link href="/dashboard/upload">
-          <Button className="gradient-emerald text-white hover-glow shadow-xl px-8 py-6 text-lg">
+          <Button className="gradient-purple text-white hover-glow shadow-xl px-8 py-6 text-lg">
             <Upload className="mr-2 h-6 w-6" />
             Upload Your First Podcast
           </Button>

@@ -98,7 +98,7 @@ export function SocialPostsTab({ socialPosts }: SocialPostsTabProps) {
                   `${platform.title} post copied to clipboard!`,
                 )
               }
-              className="shrink-0 gradient-emerald text-white shadow-md text-xs md:text-sm"
+              className="shrink-0 gradient-purple text-white shadow-md text-xs md:text-sm"
             >
               {isCopied(platform.key) ? (
                 <>

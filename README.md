@@ -6,7 +6,7 @@
 ![Clerk](https://img.shields.io/badge/Clerk-Auth-blue)
 ![Inngest](https://img.shields.io/badge/Inngest-Workflows-purple)
 ![AssemblyAI](https://img.shields.io/badge/AssemblyAI-Transcription-green)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT-teal)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT-purple)
 
 ## Stop Spending Hours on Extracting Information from Podcasts - Let AI Do It!
 

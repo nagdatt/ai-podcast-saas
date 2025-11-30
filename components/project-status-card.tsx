@@ -17,8 +17,8 @@ export function ProjectStatusCard({ project }: ProjectStatusCardProps) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-emerald-100">
-                <Calendar className="h-5 w-5 text-emerald-600" />
+              <div className="p-2 rounded-lg bg-purple-100">
+                <Calendar className="h-5 w-5 text-purple-600" />
               </div>
               <div>
                 <p className="text-xs text-gray-500 font-medium">Created</p>
@@ -28,8 +28,8 @@ export function ProjectStatusCard({ project }: ProjectStatusCardProps) {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-emerald-100">
-                <HardDrive className="h-5 w-5 text-emerald-600" />
+              <div className="p-2 rounded-lg bg-purple-100">
+                <HardDrive className="h-5 w-5 text-purple-600" />
               </div>
               <div>
                 <p className="text-xs text-gray-500 font-medium">File Size</p>
@@ -39,8 +39,8 @@ export function ProjectStatusCard({ project }: ProjectStatusCardProps) {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-emerald-100">
-                <FileType className="h-5 w-5 text-emerald-600" />
+              <div className="p-2 rounded-lg bg-purple-100">
+                <FileType className="h-5 w-5 text-purple-600" />
               </div>
               <div>
                 <p className="text-xs text-gray-500 font-medium">Format</p>
@@ -51,8 +51,8 @@ export function ProjectStatusCard({ project }: ProjectStatusCardProps) {
             </div>
             {project.fileDuration && (
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-emerald-100">
-                  <Clock className="h-5 w-5 text-emerald-600" />
+                <div className="p-2 rounded-lg bg-purple-100">
+                  <Clock className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-medium">Duration</p>

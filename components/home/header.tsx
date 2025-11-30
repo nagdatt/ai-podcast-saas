@@ -18,7 +18,7 @@ export function Header() {
     <header
       className={
         isDashboard
-          ? "gradient-emerald sticky top-0 transition-all shadow-xl backdrop-blur-sm z-50 border-b border-white/10"
+          ? "gradient-purple sticky top-0 transition-all shadow-xl backdrop-blur-sm z-50 border-b border-white/10"
           : "glass-nav sticky top-0 transition-all z-50 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
       }
     >
@@ -33,13 +33,13 @@ export function Header() {
                 className={
                   isDashboard
                     ? "p-2 rounded-xl bg-white/95 group-hover:bg-white group-hover:scale-110 group-hover:shadow-xl transition-all duration-300"
-                    : "p-2 rounded-xl gradient-emerald group-hover:scale-110 group-hover:shadow-xl transition-all duration-300"
+                    : "p-2 rounded-xl gradient-purple group-hover:scale-110 group-hover:shadow-xl transition-all duration-300"
                 }
               >
                 <Podcast
                   className={
                     isDashboard
-                      ? "h-5 w-5 text-emerald-600 group-hover:rotate-12 transition-transform duration-300"
+                      ? "h-5 w-5 text-purple-600 group-hover:rotate-12 transition-transform duration-300"
                       : "h-5 w-5 text-white group-hover:rotate-12 transition-transform duration-300"
                   }
                 />
@@ -48,7 +48,7 @@ export function Header() {
                 className={
                   isDashboard
                     ? "text-xl font-bold text-white tracking-tight"
-                    : "text-xl font-bold gradient-emerald-text tracking-tight"
+                    : "text-xl font-bold gradient-purple-text tracking-tight"
                 }
               >
                 Podassi
@@ -77,8 +77,8 @@ export function Header() {
                     <Button
                       className={
                         isDashboard
-                          ? "bg-white/95 text-emerald-600 hover:bg-white hover:scale-105 gap-2 shadow-lg font-semibold transition-all duration-300 border border-white/20"
-                          : "gradient-emerald text-white hover-glow hover:scale-105 gap-2 shadow-lg transition-all duration-300"
+                          ? "bg-white/95 text-purple-600 hover:bg-white hover:scale-105 gap-2 shadow-lg font-semibold transition-all duration-300 border border-white/20"
+                          : "gradient-purple text-white hover-glow hover:scale-105 gap-2 shadow-lg transition-all duration-300"
                       }
                     >
                       <Zap className="h-4 w-4" />
@@ -99,8 +99,8 @@ export function Header() {
                     <Button
                       className={
                         isDashboard
-                          ? "bg-white/95 text-emerald-600 hover:bg-white hover:scale-105 gap-2 shadow-lg font-semibold transition-all duration-300 border border-white/20"
-                          : "gradient-emerald text-white hover-glow hover:scale-105 gap-2 shadow-lg transition-all duration-300"
+                          ? "bg-white/95 text-purple-600 hover:bg-white hover:scale-105 gap-2 shadow-lg font-semibold transition-all duration-300 border border-white/20"
+                          : "gradient-purple text-white hover-glow hover:scale-105 gap-2 shadow-lg transition-all duration-300"
                       }
                     >
                       <Crown className="h-4 w-4" />
@@ -118,8 +118,8 @@ export function Header() {
                   <Badge
                     className={
                       isDashboard
-                        ? "gap-1.5 hidden md:flex bg-white/95 text-emerald-600 border-0 px-3 py-1.5 shadow-md hover:shadow-lg transition-all duration-300"
-                        : "gap-1.5 hidden md:flex gradient-emerald text-white border-0 px-3 py-1.5 shadow-md hover:shadow-lg transition-all duration-300"
+                        ? "gap-1.5 hidden md:flex bg-white/95 text-purple-600 border-0 px-3 py-1.5 shadow-md hover:shadow-lg transition-all duration-300"
+                        : "gap-1.5 hidden md:flex gradient-purple text-white border-0 px-3 py-1.5 shadow-md hover:shadow-lg transition-all duration-300"
                     }
                   >
                     <Crown className="h-3.5 w-3.5" />
@@ -168,8 +168,8 @@ export function Header() {
                 <Button
                   className={
                     isDashboard
-                      ? "bg-white/95 text-emerald-600 hover:bg-white hover:scale-105 shadow-lg font-semibold transition-all duration-300"
-                      : "gradient-emerald text-white hover-glow hover:scale-105 shadow-lg transition-all duration-300"
+                      ? "bg-white/95 text-purple-600 hover:bg-white hover:scale-105 shadow-lg font-semibold transition-all duration-300"
+                      : "gradient-purple text-white hover-glow hover:scale-105 shadow-lg transition-all duration-300"
                   }
                 >
                   Sign In

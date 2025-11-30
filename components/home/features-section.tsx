@@ -61,7 +61,7 @@ export function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Everything You Need in{" "}
-            <span className="gradient-emerald-text">One Platform</span>
+            <span className="gradient-purple-text">One Platform</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Powerful AI tools to amplify your podcast's reach and engagement
@@ -77,10 +77,10 @@ export function FeaturesSection() {
                 className="glass-card rounded-2xl hover-lift p-8 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="rounded-2xl gradient-emerald p-4 w-fit mb-6 group-hover:animate-pulse-emerald transition-all">
+                <div className="rounded-2xl gradient-purple p-4 w-fit mb-6 group-hover:animate-pulse-purple transition-all">
                   <Icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-600 transition-colors">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
