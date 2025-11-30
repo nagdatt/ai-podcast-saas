@@ -1,7 +1,7 @@
 "use client";
 
 import { SignInButton, UserButton, useAuth, Protect } from "@clerk/nextjs";
-import { Home, Sparkles, Zap, Crown } from "lucide-react";
+import { Home, Sparkles, Zap, Crown, Podcast } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DashboardNav } from "@/components/dashboard-nav";
@@ -36,7 +36,7 @@ export function Header() {
                     : "p-2 rounded-xl gradient-emerald group-hover:scale-110 group-hover:shadow-xl transition-all duration-300"
                 }
               >
-                <Sparkles
+                <Podcast
                   className={
                     isDashboard
                       ? "h-5 w-5 text-emerald-600 group-hover:rotate-12 transition-transform duration-300"
