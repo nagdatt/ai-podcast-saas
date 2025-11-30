@@ -20,3 +20,19 @@ export type UploadStatus =
   | "completed"
   | "error";
 
+export type StepStatus =
+  | "completed"
+  | "failed"
+  | "pending"
+  | "running";
+
+export interface JobStatus {
+  transcription?: StepStatus;
+  contentGeneration?: StepStatus;
+  keyMoments?: StepStatus;
+  summary?: StepStatus;
+  social?: StepStatus;
+  titles?: StepStatus;
+  hashtags?: StepStatus;
+  youtubeTimestamps?: StepStatus;
+}

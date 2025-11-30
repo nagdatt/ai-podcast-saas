@@ -21,7 +21,8 @@ import { MS_PER_DAY, MS_PER_HOUR, MS_PER_MINUTE } from "./constants";
  * Uses bytes library for consistent cross-platform formatting
  */
 export function formatFileSize(size: number): string {
-  return bytes(size, { unitSeparator: " " });
+  return  bytes(size, { unitSeparator: " " }) ?? "0 B";
+;
 }
 
 /**

@@ -25,7 +25,7 @@ import type { Id } from "@/convex/_generated/dataModel";
 import { inngest } from "@/inngest/client";
 import { convex } from "@/lib/convex-client";
 import { checkUploadLimits } from "@/lib/tier-utils";
-
+import { PlanName } from "@/lib/tier-config";
 /**
  * Validate upload before starting
  *
@@ -38,13 +38,21 @@ export async function validateUploadAction(input: {
 }): Promise<{ success: boolean; error?: string }> {
   const authObj = await auth();
   const { userId } = authObj;
-
+    const { has } = authObj;
+      let plan:PlanName = "free";
+    
+    if (has?.({ plan: "ultra" })) {
+    plan = "ultra";
+  } else if (has?.({ plan: "pro" })) {
+    plan = "pro";
+  }
+//SessionAuthWithRedirect
   if (!userId) {
     return { success: false, error: "You must be signed in to upload files" };
   }
 
   const validation = await checkUploadLimits(
-    authObj,
+    plan,
     userId,
     input.fileSize,
     input.duration
@@ -120,7 +128,7 @@ export async function createProjectAction(input: CreateProjectInput) {
     const { has } = authObj;
 
     // Determine user's plan using Clerk
-    let plan: "free" | "pro" | "ultra" = "free";
+    let plan:PlanName = "free";
     if (has?.({ plan: "ultra" })) {
       plan = "ultra";
     } else if (has?.({ plan: "pro" })) {
@@ -128,7 +136,7 @@ export async function createProjectAction(input: CreateProjectInput) {
     }
 
     const validation = await checkUploadLimits(
-      authObj,
+      plan,
       userId,
       fileSize || 0,
       fileDuration

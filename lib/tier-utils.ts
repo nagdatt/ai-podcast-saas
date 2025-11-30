@@ -1,16 +1,9 @@
-/**
- * Tier Utilities for Plan Detection and Validation
- *
- * Provides functions to:
- * - Validate uploads against plan limits using Clerk's has() method
- * - Check feature access
- *
- * All plan checks use Clerk's native billing system per:
- * https://clerk.com/docs/nextjs/guides/billing/for-b2c
- */
 
-import type { Auth } from "@clerk/nextjs/server";
+// import { Auth } from '@clerk/nextjs/server';
+// import type { Auth } from '@clerk/nextjs/server'; // If you only need the type
 import { convex } from "@/lib/convex-client";
+// import { auth, currentUser } from '@clerk/nextjs/server'; // Correct import for functions
+
 import { api } from "@/convex/_generated/api";
 import {
   FEATURES,
@@ -29,38 +22,25 @@ export interface UploadValidationResult {
   limit?: number;
 }
 
-/**
- * Validate if user can upload a file based on their plan limits
- *
- * Checks:
- * 1. File size against plan limit
- * 2. Duration against plan limit (if provided)
- * 3. Project count against plan limit
- *
- * @param auth - Clerk auth object
- * @param userId - User ID for project counting
- * @param fileSize - File size in bytes
- * @param duration - Optional duration in seconds
- * @returns Validation result with details
- */
 export async function checkUploadLimits(
-  auth: Auth,
+  currentPlan: PlanName,
   userId: string,
   fileSize: number,
   duration?: number
 ): Promise<UploadValidationResult> {
   // Get user's plan using Clerk's has() method
-  const { has } = auth;
-  let plan: PlanName = "free";
-  if (has?.({ plan: "ultra" })) {
-    plan = "ultra";
-  } else if (has?.({ plan: "pro" })) {
-    plan = "pro";
-  }
+  // const authObj =await auth();
+  // const authTemp=await auth();
+  // const { has} = auth;
+  let plan: PlanName = currentPlan;
+  // if (has?.({ plan: "ultra" })) {
+  //   plan = "ultra";
+  // } else if (has?.({ plan: "pro" })) {
+  //   plan = "pro";
+  // }
   
   const limits = PLAN_LIMITS[plan];
 
-  // Check file size limit
   if (fileSize > limits.maxFileSize) {
     return {
       allowed: false,
@@ -69,7 +49,6 @@ export async function checkUploadLimits(
     };
   }
 
-  // Check duration limit (if duration provided and plan has limit)
   if (duration && limits.maxDuration && duration > limits.maxDuration) {
     const durationMinutes = Math.floor(duration / 60);
     const limitMinutes = Math.floor(limits.maxDuration / 60);
@@ -80,10 +59,8 @@ export async function checkUploadLimits(
     };
   }
 
-  // Check project count limit (skip for ultra - unlimited)
   if (limits.maxProjects !== null) {
-    // FREE: count all projects (including deleted)
-    // PRO: count only active projects
+
     const includeDeleted = plan === "free";
     const projectCount = await convex.query(api.projects.getUserProjectCount, {
       userId,
@@ -101,54 +78,28 @@ export async function checkUploadLimits(
     }
   }
 
-  // All checks passed
   return { allowed: true };
 }
 
-/**
- * Check if user has access to a specific feature
- *
- * Uses Clerk's has() method for feature-level checking
- *
- * @param auth - Clerk auth object
- * @param feature - Feature name to check
- * @returns True if user has access to feature
- */
-export function checkFeatureAccess(
-  auth: Auth,
-  feature: FeatureName
-): boolean {
-  const { has } = auth;
-  return has ? has({ feature }) : false;
-}
 
-/**
- * Get list of features available to a plan
- *
- * @param plan - Plan name
- * @returns Array of feature names available to the plan
- */
+// export function checkFeatureAccess(
+//   auth: Auth,
+//   feature: FeatureName
+// ): boolean {
+//   const { has } = auth;
+//   return has ? has({ feature }) : false;
+// }
+
 export function getPlanFeatures(plan: PlanName): FeatureName[] {
   return PLAN_FEATURES[plan];
 }
 
-/**
- * Check if a plan has a specific feature
- *
- * @param plan - Plan name
- * @param feature - Feature to check
- * @returns True if plan includes feature
- */
+
 export function planHasFeature(plan: PlanName, feature: FeatureName): boolean {
   return PLAN_FEATURES[plan].includes(feature);
 }
 
-/**
- * Get the minimum plan required for a feature
- *
- * @param feature - Feature name
- * @returns Minimum plan name that includes this feature
- */
+
 export function getMinimumPlanForFeature(feature: FeatureName): PlanName {
   if (PLAN_FEATURES.free.includes(feature)) return "free";
   if (PLAN_FEATURES.pro.includes(feature)) return "pro";
