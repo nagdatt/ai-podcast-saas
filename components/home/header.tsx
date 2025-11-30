@@ -132,11 +132,13 @@ export function Header() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={
-                        isDashboard
-                          ? "hover-scale text-white hover:bg-white/20 transition-all duration-300"
-                          : "hover-scale transition-all duration-300"
-                      }
+                   className={
+  isDashboard
+    ? "hover-scale text-white hover:bg-white/20 transition-all duration-300"
+    : "hover-scale hover:bg-purple-100/20 transition-all duration-300"
+}
+
+
                     >
                       <span className="hidden lg:inline">My Projects</span>
                       <span className="lg:hidden">Projects</span>

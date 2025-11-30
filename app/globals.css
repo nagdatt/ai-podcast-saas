@@ -231,3 +231,6 @@ div[role="alertdialog"] {
 .progress-ai {
   background: linear-gradient(90deg, #7F5AF0, #00A8E8);
 }
+.progress-purple {
+  background-color: #7F5AF0; /* your AI purple */
+}
