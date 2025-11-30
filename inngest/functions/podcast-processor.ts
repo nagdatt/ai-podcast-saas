@@ -212,7 +212,9 @@ export const podcastProcessor = inngest.createFunction(
           message:
             error instanceof Error ? error.message : "Unknown error occurred",
           step: "workflow",
-          details: error instanceof Error ? error.stack : String(error),
+          details: error instanceof Error
+  ? { stack: error.stack }
+  : { stack: String(error) },
         });
       } catch (cleanupError) {
         // If cleanup fails, log it but don't prevent the original error from being thrown
