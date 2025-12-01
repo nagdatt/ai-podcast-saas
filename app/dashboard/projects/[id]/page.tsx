@@ -191,17 +191,17 @@ export default function ProjectDetailPage() {
               variant="outline"
               size="lg"
               onClick={handleStartEdit}
-              className="glass-card hover-lift border-2 border-emerald-200 hover:border-emerald-400 px-6 bg-white"
+              className="glass-card hover-lift border-2 border-purple-200 hover:border-purple-400 px-6 bg-white"
             >
-              <Edit2 className="h-4 w-4 mr-2 text-emerald-600" />
-              <span className="font-semibold text-emerald-700">Edit</span>
+              <Edit2 className="h-4 w-4 mr-2 text-purple-600" />
+              <span className="font-semibold text-purple-700">Edit</span>
             </Button>
           )}
           <Button
             size="lg"
             onClick={handleDelete}
             disabled={isDeleting}
-            className="gradient-emerald text-white hover-glow px-6 transition-all"
+            className="gradient-purple text-white hover-glow px-6 transition-all"
           >
             {isDeleting ? (
               <Loader2 className="h-4 w-4 animate-spin mr-2" />
@@ -250,7 +250,7 @@ export default function ProjectDetailPage() {
             {/* Mobile Dropdown */}
             <div className="glass-card rounded-2xl p-4 mb-6 lg:hidden">
               <Select value={activeTab} onValueChange={setActiveTab}>
-                <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-linear-to-r from-emerald-500 to-teal-400 text-white font-semibold text-base border-none outline-none focus:ring-2 focus:ring-emerald-300 transition-all h-auto">
+                <SelectTrigger className="w-full px-4 py-3 rounded-xl bg-linear-to-r from-purple-500 to-purple-400 text-white font-semibold text-base border-none outline-none focus:ring-2 focus:ring-purple-300 transition-all h-auto">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

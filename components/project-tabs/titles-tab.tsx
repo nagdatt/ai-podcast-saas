@@ -42,7 +42,7 @@ export function TitlesTab({ titles }: TitlesTabProps) {
     <div className="space-y-6">
       {TITLE_CATEGORIES.map((category) => (
         <div key={category.key} className="glass-card rounded-2xl p-6 md:p-8">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 gradient-emerald-text">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 gradient-purple-text">
             {category.title}
           </h3>
           {category.type === "list" ? (
@@ -50,7 +50,7 @@ export function TitlesTab({ titles }: TitlesTabProps) {
               {titles[category.key].map((title) => (
                 <li
                   key={title}
-                  className="p-3 md:p-4 glass-card rounded-xl border-l-4 border-l-emerald-400"
+                  className="p-3 md:p-4 glass-card rounded-xl border-l-4 border-l-purple-400"
                 >
                   <p className="text-sm md:text-base text-gray-700 font-medium wrap-break-word">
                     {title}
@@ -63,7 +63,7 @@ export function TitlesTab({ titles }: TitlesTabProps) {
               {titles[category.key].map((keyword) => (
                 <Badge
                   key={keyword}
-                  className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm gradient-emerald text-white shadow-md wrap-break-word"
+                  className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm gradient-purple text-white shadow-md wrap-break-word"
                 >
                   {keyword}
                 </Badge>

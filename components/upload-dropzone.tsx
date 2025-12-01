@@ -90,9 +90,9 @@ export function UploadDropzone({
         className={cn(
           // Base styles: Dashed border, clickable, transitions
           "border-3 border-dashed rounded-2xl p-16 text-center cursor-pointer transition-all",
-          "border-emerald-300 hover:border-emerald-500 hover:bg-emerald-50/50",
+          "border-purple-300 hover:border-purple-500 hover:bg-purple-50/50",
           // Drag active state (file hovering over dropzone)
-          isDragActive && "border-emerald-600 bg-emerald-50 scale-[1.02] shadow-xl",
+          isDragActive && "border-purple-600 bg-purple-50 scale-[1.02] shadow-xl",
           // Disabled state
           disabled && "opacity-50 cursor-not-allowed",
           // Error state
@@ -108,12 +108,12 @@ export function UploadDropzone({
           {/* Icon indicator */}
           <div className={cn(
             "rounded-3xl p-8 transition-all",
-            isDragActive ? "gradient-emerald animate-pulse-emerald shadow-2xl scale-110" : "glass-card"
+            isDragActive ? "gradient-purple animate-pulse-purple shadow-2xl scale-110" : "glass-card"
           )}>
             {isDragActive ? (
               <Upload className="h-16 w-16 text-white animate-bounce" />
             ) : (
-              <FileAudio className="h-16 w-16 text-emerald-600" />
+              <FileAudio className="h-16 w-16 text-purple-600" />
             )}
           </div>
 

@@ -26,7 +26,7 @@ export function GenerationOutputItem({
         isLocked
           ? "opacity-30 scale-100"
           : isActive
-            ? "ring-2 ring-emerald-400 shadow-lg scale-[1.02]"
+            ? "ring-2 ring-purple-400 shadow-lg scale-[1.02]"
             : "opacity-40 scale-100"
       )}
     >
@@ -38,8 +38,8 @@ export function GenerationOutputItem({
               isLocked
                 ? "bg-gray-200"
                 : isActive
-                  ? "gradient-emerald shadow-md"
-                  : "bg-emerald-100"
+                  ? "gradient-purple shadow-md"
+                  : "bg-purple-100"
             )}
           >
             <Icon
@@ -49,7 +49,7 @@ export function GenerationOutputItem({
                   ? "text-gray-400"
                   : isActive
                     ? "text-white"
-                    : "text-emerald-600"
+                    : "text-purple-600"
               )}
             />
           </div>
@@ -61,7 +61,7 @@ export function GenerationOutputItem({
                   isLocked
                     ? "text-gray-400"
                     : isActive
-                      ? "text-emerald-700"
+                      ? "text-purple-700"
                       : "text-gray-600"
                 )}
               >
@@ -72,7 +72,7 @@ export function GenerationOutputItem({
                   className={cn(
                     "h-5 w-5 animate-spin transition-all duration-500",
                     isActive
-                      ? "text-emerald-600 opacity-100"
+                      ? "text-purple-600 opacity-100"
                       : "text-gray-400 opacity-50"
                   )}
                 />

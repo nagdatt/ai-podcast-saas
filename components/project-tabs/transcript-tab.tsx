@@ -24,7 +24,7 @@ export function TranscriptTab({ projectId, transcript }: TranscriptTabProps) {
 
   // Color palette for speakers - cycles through these colors
   const speakerColors = [
-    "gradient-emerald text-white", // Green
+    "gradient-purple text-white", // Green
     "bg-blue-500 text-white", // Blue
     "bg-rose-500 text-white", // Rose/Pink
     "bg-amber-500 text-white", // Amber/Orange
@@ -33,7 +33,7 @@ export function TranscriptTab({ projectId, transcript }: TranscriptTabProps) {
     "bg-pink-500 text-white", // Pink
     "bg-indigo-500 text-white", // Indigo
     "bg-orange-500 text-white", // Orange
-    "bg-teal-500 text-white", // Teal
+    "bg-purple-500 text-white", // Teal
   ];
 
   // Get unique speakers and create a color mapping
@@ -79,7 +79,7 @@ export function TranscriptTab({ projectId, transcript }: TranscriptTabProps) {
     >
       <div className="glass-card rounded-2xl p-6 md:p-8">
         <div className="mb-6 md:mb-8">
-          <h3 className="text-xl md:text-2xl font-bold gradient-emerald-text mb-2">
+          <h3 className="text-xl md:text-2xl font-bold gradient-purple-text mb-2">
             Speaker Dialogue
           </h3>
           <p className="text-sm text-gray-600">
@@ -92,7 +92,7 @@ export function TranscriptTab({ projectId, transcript }: TranscriptTabProps) {
           {transcript.speakers?.map((utterance) => (
             <div
               key={`${utterance.start}-${utterance.speaker}`}
-              className="flex gap-3 md:gap-4 items-start p-4 md:p-5 glass-card rounded-xl border-l-4 border-l-emerald-400"
+              className="flex gap-3 md:gap-4 items-start p-4 md:p-5 glass-card rounded-xl border-l-4 border-l-purple-400"
             >
               <Badge
                 className={`mt-1 shrink-0 px-3 py-1.5 text-sm font-bold shadow-md ${getSpeakerColor(
@@ -105,7 +105,7 @@ export function TranscriptTab({ projectId, transcript }: TranscriptTabProps) {
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <Badge
                     variant="outline"
-                    className="text-xs shrink-0 border-emerald-200 text-emerald-700"
+                    className="text-xs shrink-0 border-purple-200 text-purple-700"
                   >
                     {new Date(utterance.start * 1000)
                       .toISOString()

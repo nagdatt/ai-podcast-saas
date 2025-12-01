@@ -26,7 +26,7 @@ export function HashtagsTab({ hashtags }: HashtagsTabProps) {
 
   return (
     <div className="glass-card rounded-2xl p-6 md:p-8">
-      <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 gradient-emerald-text">
+      <h3 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 gradient-purple-text">
         Platform Hashtags
       </h3>
       <div className="space-y-4 md:space-y-6">
@@ -39,7 +39,7 @@ export function HashtagsTab({ hashtags }: HashtagsTabProps) {
               {hashtags[platform.key].map((tag, idx) => (
                 <Badge
                   key={`${platform.key}-${idx}`}
-                  className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm bg-emerald-100 text-emerald-700 border-emerald-200 wrap-break-word"
+                  className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm bg-purple-100 text-purple-700 border-purple-200 wrap-break-word"
                 >
                   {tag}
                 </Badge>

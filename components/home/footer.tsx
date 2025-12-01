@@ -2,17 +2,17 @@ import { Podcast } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-gradient-to-br from-gray-50 to-emerald-50/30">
+    <footer className="border-t bg-gradient-to-br from-gray-50 to-purple-50/30">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-2 rounded-lg gradient-emerald">
+                <div className="p-2 rounded-lg gradient-purple">
                   <Podcast className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-bold text-lg gradient-emerald-text">
+                <span className="font-bold text-lg gradient-purple-text">
                   Podassi
                 </span>
               </div>
@@ -29,7 +29,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Home
                   </a>
@@ -37,7 +37,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/dashboard/projects"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Projects
                   </a>
@@ -45,7 +45,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/dashboard/upload"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Upload
                   </a>
@@ -60,7 +60,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Documentation
                   </a>
@@ -68,7 +68,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Contact Us
                   </a>
@@ -76,7 +76,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
+                    className="text-gray-600 hover:text-purple-600 transition-colors text-sm"
                   >
                     Privacy Policy
                   </a>

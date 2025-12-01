@@ -46,7 +46,7 @@ export function GenerateMissingCard({
       <Button
         onClick={handleGenerate}
         disabled={isGenerating}
-        className="gradient-emerald text-white hover-glow shadow-lg px-6 py-3 gap-2"
+        className="gradient-purple text-white hover-glow shadow-lg px-6 py-3 gap-2"
       >
         <Sparkles className="h-5 w-5" />
         {isGenerating ? "Generating..." : "Generate All Missing Features"}

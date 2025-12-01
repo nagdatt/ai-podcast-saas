@@ -16,7 +16,7 @@ export function PricingSection({ compact = false }: PricingSectionProps) {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Simple, <span className="gradient-emerald-text">Transparent</span> Pricing
+              Simple, <span className="gradient-purple-text">Transparent</span> Pricing
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime.
@@ -30,7 +30,7 @@ export function PricingSection({ compact = false }: PricingSectionProps) {
                 appearance={{
                   elements: {
                     pricingTableCardHeader: {
-                      background: "linear-gradient(135deg, rgb(16 185 129), rgb(45 212 191))",
+                      background: "linear-gradient(135deg, rgb(127 90 240), rgb(103, 57, 241))",
                       color: "white",
                       borderRadius: "1rem 1rem 0 0",
                       padding: compact ? "2rem" : "2.5rem",
@@ -92,7 +92,7 @@ export function PricingSection({ compact = false }: PricingSectionProps) {
                 fallback={
                   <div className="flex items-center justify-center py-20">
                     <div className="text-center space-y-4 glass-card p-12 rounded-2xl">
-                      <Loader2 className="h-16 w-16 animate-spin text-emerald-600 mx-auto" />
+                      <Loader2 className="h-16 w-16 animate-spin text-purple-600 mx-auto" />
                       <p className="text-gray-600 text-lg font-medium">Loading pricing options...</p>
                     </div>
                   </div>
